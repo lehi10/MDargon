@@ -1,13 +1,14 @@
 #ifndef ADITIONALS_H
 #define ADITIONALS_H
 
-#include <GL/gl.h>
-#include <GL/glu.h>
+
+
 #include <GL/glut.h>
 #include <vector>
 #include <thread>
 #include <iostream>
 #include <math.h>
+
 
 using namespace std;
 
@@ -20,7 +21,11 @@ struct molecula
     double oldy;
     float radio=0.02;
     double tem;
-    double velo;
+    double vx;
+    double vy;
+    double ax;
+    double ay;
+
     molecula ()
     {
         x=0.05;
@@ -66,23 +71,18 @@ void dibujar(molecula *mol)
 
     glPushMatrix();
         glTranslatef(x,y,0);
-        glColor3f(1,1,1);
-        glutSolidSphere(radio,20,20);
+        glutSolidSphere(radio,20,10);
     glPopMatrix();
-    glColor3f(1,1,1);
-    glutWireCube(1.8);
 
-    //glutPostRedisplay();
+    glColor3f(1,1,1);
+    glutWireCube(1.85);
     glFlush();
 
 }
 
 void limpiar()
 {
-    glClearColor(0, 0,0, 0);
     glClear(GL_COLOR_BUFFER_BIT);
-    glMatrixMode(GL_PROJECTION);
-    glLoadIdentity();
 }
 
 
