@@ -17,9 +17,8 @@ struct molecula
     double x;
     double y;
     double z;
-    double oldx;
-    double oldy;
-    float radio=0.02;
+
+    float radio=0.01;
     double tem;
     double vx;
     double vy;
@@ -30,16 +29,12 @@ struct molecula
     {
         x=0.05;
         y=0.05;
-        oldx=0.02;
-        oldy=0.02;
     }
 
     molecula(double _x, double _y)
     {
         x=_x;
         y=_y;
-        oldx=_x-0.03;
-        oldy=_y-0.03;
     }
 
 };
@@ -75,7 +70,7 @@ void dibujar(molecula *mol)
     glPopMatrix();
 
     glColor3f(1,1,1);
-    glutWireCube(1.85);
+    glutWireCube(1.8);
     glFlush();
 
 }

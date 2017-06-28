@@ -152,6 +152,7 @@ void dibujar_moleculas()
         dibujar(_c->vec_cubo[i]);
 }
 
+
 void correr()
 {
     for(float tiempo=0;tiempo<tfin;tiempo+=dt)
@@ -161,6 +162,14 @@ void correr()
         actualizar_moleculas(_c);
         dibujar_moleculas();
 
+    }
+}
+
+void recorrido()
+{
+    for(float tiempo=0;tiempo<tfin;tiempo+=dt)
+    {
+           
     }
 }
 
