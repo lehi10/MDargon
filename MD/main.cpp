@@ -49,6 +49,11 @@ void reescalar_velocidades()
 
 }
 
+void inicializar_posiciones()
+{
+
+}
+
 void inicializar_velocidades()
 {
     int num_mol=_c->num_moleculas;
@@ -75,6 +80,7 @@ void inicializar_velocidades()
         _c->vec_cubo[i]->vx=vCM[0];
         _c->vec_cubo[i]->vy=vCM[1];
     }
+    reescalar_velocidades();
 }
 
 
@@ -126,7 +132,7 @@ void colision_moleculas(cubo *contenedor)
             double distancia = distancia_centro(mol1,mol2);
             if(distancia<=0)
             {
-                //cout<<distancia<<endl;
+                cout<<distancia<<endl;
             }
         }
     }
@@ -137,10 +143,10 @@ void actualizar_moleculas(cubo *contenedor)
     for(int i=0;i<contenedor->num_moleculas;i++)
     {
         molecula *mol=contenedor->vec_cubo[i];
-        /*
+
         mol->x+=mol->vx*dt+0.5*mol->ax*dt*dt;
         mol->y+=mol->vy*dt+0.5*mol->ay*dt*dt;
-        */
+
 
         double vx=mol->x - mol->oldx;
         double vy=mol->y - mol->oldy;
@@ -152,7 +158,8 @@ void actualizar_moleculas(cubo *contenedor)
         mol->y+=vy;
 
         colision_limite(mol, vx, vy);
-        //colision_moleculas(contenedor);
+
+        colision_moleculas(contenedor);
     }
 }
 
